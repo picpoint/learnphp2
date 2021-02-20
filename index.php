@@ -2,6 +2,6 @@
 
 require __DIR__ . '/autoload.php';
 
-$db = new App\Db();
-$res = $db -> queryToDB("SELECT * FROM users");
-print_r($res);
+$rs = new App\Db();
+$res = $rs -> query("SELECT * FROM users");
+var_dump($res);
