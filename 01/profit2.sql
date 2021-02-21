@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 14 2021 г., 16:16
+-- Время создания: Фев 21 2021 г., 14:11
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -20,6 +20,27 @@ SET time_zone = "+00:00";
 --
 -- База данных: `profit2`
 --
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `news`
+--
+
+CREATE TABLE `news` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(255) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `news`
+--
+
+INSERT INTO `news` (`id`, `title`, `content`) VALUES
+(1, 'Высадка на Марс', 'Ровер успешно высадился на красную планету'),
+(2, 'Компьютерные новости', 'В эстонии сегодня стартовали продажи Windows XP'),
+(3, 'Космо-новости', 'Запущен первый радиотелескоп на орбите');
 
 -- --------------------------------------------------------
 
@@ -47,6 +68,12 @@ INSERT INTO `users` (`id`, `login`, `password`) VALUES
 --
 
 --
+-- Индексы таблицы `news`
+--
+ALTER TABLE `news`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
@@ -55,6 +82,12 @@ ALTER TABLE `users`
 --
 -- AUTO_INCREMENT для сохранённых таблиц
 --
+
+--
+-- AUTO_INCREMENT для таблицы `news`
+--
+ALTER TABLE `news`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
