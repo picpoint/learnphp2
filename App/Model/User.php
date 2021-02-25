@@ -1,7 +1,7 @@
 <?php
 
-namespace \App\Model;
-// use \App\Db();
+namespace App\Model;
+use App\Db;
 
 
 class User {
@@ -10,7 +10,13 @@ class User {
     public $login;
     public $password;
 
-    // $db = new Db();
+    
+    public function getAllUsers() {
+        $db = new Db();
+        $res = $db->query("SELECT * FROM users");
+        print_r($res);
+    }
+    
 
 
 

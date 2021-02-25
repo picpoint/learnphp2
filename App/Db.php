@@ -9,11 +9,11 @@ class Db {
 
     public function __construct() {
         $config = (require __DIR__ . '/../config.php')['db'];
-        $this->dbh = new \PDO('mysql:host=localhost;dbname=profit2', 'rmtar', '2203');
+        $this->dbh = new \PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['user'], $config['password']);
     }
 
 
-    public function getAll($sql) {
+    public function query($sql) {
         $sth = $this->dbh -> prepare($sql);
         $sth -> execute();
         return $sth -> fetchAll();

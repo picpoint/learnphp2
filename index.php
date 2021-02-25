@@ -3,6 +3,8 @@
 
 require __DIR__ . '/autoload.php';
 
-$res = new \App\Db();
-$datas = $res -> getAll('SELECT * FROM users');
-var_dump($datas);
+$usrs = new \App\Model\User();
+$usrs -> getAllUsers();
+
+echo("<br>");
+var_dump($usrs);
