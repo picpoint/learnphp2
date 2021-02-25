@@ -1,10 +1,22 @@
 <?php
-
+error_reporting(E_ALL);
 
 require __DIR__ . '/autoload.php';
 
-$usrs = new \App\Model\User();
-$usrs -> getAllUsers();
 
-echo("<br>");
-var_dump($usrs);
+$data = App\Models\Article::getAll();
+print_r($data);
+
+
+
+
+// foreach($data as $dt) {
+//     foreach($dt as $key => $value) {
+//         if(is_numeric($key)) {
+//             continue;
+//         }
+//         echo("$key - $value");
+//         echo("<br>");
+//     }
+//     echo("<br>");
+// }

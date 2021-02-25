@@ -13,10 +13,10 @@ class Db {
     }
 
 
-    public function query($sql) {
+    public function query($sql, $class) {
         $sth = $this->dbh -> prepare($sql);
         $sth -> execute();
-        return $sth -> fetchAll();
+        return $sth -> fetchAll(\PDO::FETCH_CLASS, $class);
     }
 
 
