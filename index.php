@@ -21,5 +21,5 @@ require __DIR__ . '/autoload.php';
 
 
 
-$news = App\Models\News::getAll();
+$news = App\Models\News::getNLatestNews(4);
 print_r($news);

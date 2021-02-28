@@ -33,7 +33,14 @@ abstract class Model {
         }
 
     }
-    
+
+
+    public static function getNLatestNews($quantity) {
+        $db = new Db();
+        $sql = "(SELECT * FROM " . static::$table . " ORDER BY id DESC limit " . $quantity . " ) ORDER BY id ASC";
+        return $db->query($sql, static::class, $arr);
+    }
+
 
 
 }
