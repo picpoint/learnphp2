@@ -4,29 +4,22 @@ error_reporting(E_ALL);
 require __DIR__ . '/autoload.php';
 
 
-// $data = App\Models\Article::getAll();
+// $data = App\Models\Article::getAll();                                   // получение новостей
 // print_r($data);
 
-// echo("<br>");
-// echo("<br>");
-// echo("<br>");
 
-// $rs = App\Models\User::getAll();
+// $rs = App\Models\User::getAll();                                        // получение записей о пользователях
 // print_r($rs);
 
 
-$getOneRecord = Tests\GetOneRecord::findById(0);
-print_r($getOneRecord);
+// $getOneRecord = Tests\GetOneRecord::findById(2);                        // получение одной записи
+// print_r($getOneRecord);
 
 
-
-
-
-
-
-
-
-
-
-// $res = Tests\TestPerfomance::getAll();                                   // тест с подстановкой для проверки работы
+// $res = Tests\TestPerfomance::getAll();                                  // тест с подстановкой для проверки работы
 // print_r($res);
+
+
+
+$news = App\Models\News::getAll();
+print_r($news);

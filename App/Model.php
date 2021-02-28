@@ -20,6 +20,7 @@ abstract class Model {
     }
 
 
+
     public static function findById($id) {
         $db = new Db();
         $sql = "SELECT * FROM " . static::$table . " WHERE id = " . $id;
@@ -32,6 +33,7 @@ abstract class Model {
         }
 
     }
+    
 
 
 }
