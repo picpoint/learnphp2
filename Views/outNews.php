@@ -11,9 +11,9 @@ echo("<br>");
 foreach($news as $new) {
     foreach($new as $key => $value) {
         if($key == 'id') {
-            echo("<b>$value) </b>");            
+            echo(" <a href=" . 'Views/article.php' . "> <b>$value) </b> </a>");
         }elseif($key == 'headline') {
-            echo("<b>$value</b>");
+            echo(" <a href=" . 'Views/article.php' . "> <b>$value </b> </a>");
             echo("<br>");
         } elseif ($key == 'content') {
             echo("<u>$value</u>");
