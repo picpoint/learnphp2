@@ -1,4 +1,13 @@
 <?php
 
+namespace Views;
+use App\Model;
 
-echo("Article page");
+echo($_GET['id']);
+
+echo("<br>");
+echo("<br>");
+echo("<br>");
+
+$resArticle = \App\Models\Article::findById($_GET['id']);
+print_r($resArticle);

@@ -38,7 +38,7 @@ abstract class Model {
     public static function getNLatestNews($quantity) {
         $db = new Db();
         $sql = "(SELECT * FROM " . static::$table . " ORDER BY id DESC limit " . $quantity . ") ORDER BY id ASC";          // DESC - отсортирует по убыванию 3, 2, 1 
-        return $db->query($sql, static::class, $arr);                                                                       // ASC - отсортирует по возрастанию 1, 2, 3
+        return $db->query($sql, static::class, $arr);                                                                      // ASC - отсортирует по возрастанию 1, 2, 3
     }
 
 

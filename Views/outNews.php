@@ -11,9 +11,10 @@ echo("<br>");
 foreach($news as $new) {
     foreach($new as $key => $value) {
         if($key == 'id') {
-            echo(" <a href=" . 'Views/article.php' . "> <b>$value) </b> </a>");
+            $_GET['id'] = $value;
+            echo(" <a href=" . 'Views/article.php?id=' . $_GET['id'] . "> <b>$value) </b> </a>");
         }elseif($key == 'headline') {
-            echo(" <a href=" . 'Views/article.php' . "> <b>$value </b> </a>");
+            echo(" <a href=" . 'Views/article.php?id=' . $_GET['id'] . "> <b>$value </b> </a>");
             echo("<br>");
         } elseif ($key == 'content') {
             echo("<u>$value</u>");
