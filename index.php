@@ -3,6 +3,8 @@ error_reporting(E_ALL);
 
 require __DIR__ . '/autoload.php';
 
+include __DIR__ . '/Views/outNews.php';
+
 
 // $data = App\Models\Article::getAll();                                   // получение новостей
 // print_r($data);
@@ -21,5 +23,8 @@ require __DIR__ . '/autoload.php';
 
 
 
-$news = App\Models\News::getNLatestNews(4);
-print_r($news);
+// $news = App\Models\News::getNLatestNews(2);                                // вывод N-последних новостей на страницу
+// print_r($news);
+
+
+
