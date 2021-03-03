@@ -13,9 +13,9 @@ class Db {
     }
 
 
-    public function query($sql, $class, $arr) {
+    public function query($sql, $class) {
         $sth = $this->dbh -> prepare($sql);
-        $sth -> execute($arr);
+        $sth -> execute();
         return $sth -> fetchAll(\PDO::FETCH_CLASS, $class);
     }
 

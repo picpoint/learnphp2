@@ -16,7 +16,7 @@ abstract class Model {
         $db = new Db();
         // $class = get_called_class();
         $sql = "SELECT * FROM " . static::$table;
-        return $db->query($sql, static::class, $arr);
+        return $db->query($sql, static::class);
     }
 
 
