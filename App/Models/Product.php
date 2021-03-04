@@ -5,13 +5,15 @@ use App\Model;
 
 
 class Product extends Model implements HasPrice {
-    public $title;
-    public $price;
 
-    public static $table = 'product';
+    public $title;
+    public $price;    
+    public static $table = 'products';
+
 
     public function getPrice() {
-        return $this->price;
+
     }
+
 
 }

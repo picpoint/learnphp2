@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Фев 28 2021 г., 22:07
+-- Время создания: Мар 04 2021 г., 08:49
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -68,6 +68,49 @@ INSERT INTO `news` (`id`, `headline`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `products`
+--
+
+CREATE TABLE `products` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `products`
+--
+
+INSERT INTO `products` (`id`, `title`, `price`) VALUES
+(1, 'Blackberry', 15000),
+(2, 'Sony', 17200),
+(3, 'Windows Phone', 13250),
+(4, 'Motorolla', 14459);
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `services`
+--
+
+CREATE TABLE `services` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `title` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL,
+  `price` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `services`
+--
+
+INSERT INTO `services` (`id`, `title`, `price`) VALUES
+(1, 'Настройка IOS', 1500),
+(2, 'Настройка Motorolla', 1350),
+(3, 'Настройка Windows Phone', 950);
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `users`
 --
 
@@ -105,6 +148,19 @@ ALTER TABLE `news`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Индексы таблицы `products`
+--
+ALTER TABLE `products`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
+-- Индексы таблицы `services`
+--
+ALTER TABLE `services`
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Индексы таблицы `users`
 --
 ALTER TABLE `users`
@@ -126,6 +182,18 @@ ALTER TABLE `articles`
 --
 ALTER TABLE `news`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+
+--
+-- AUTO_INCREMENT для таблицы `products`
+--
+ALTER TABLE `products`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
+-- AUTO_INCREMENT для таблицы `services`
+--
+ALTER TABLE `services`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `users`
