@@ -1,15 +1,20 @@
 <?php
 error_reporting(E_ALL);
+use App\Models\Product;
+use App\Models\Service;
+use App\Models\HasPrice;
 
 require __DIR__ . '/autoload.php';
 
-$product = \App\Models\Product::getAll();
-print_r($product);
 
-echo("<br>");
-echo("<br>");
-echo("<br>");
+function showPrice(HasPrice $item) {
+    echo $item -> getPrice();
+    echo("<br>");
+    echo $item -> getTitle();
+}
 
-$service = \App\Models\Service::getAll();
-print_r($service);
+$item = new Product();
+$item->price = 43;
+$item->title = "BQ";
 
+showPrice($item);

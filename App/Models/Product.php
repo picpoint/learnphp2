@@ -4,15 +4,16 @@ namespace App\Models;
 use App\Model;
 
 
-class Product extends Model implements HasPrice {
+class Product extends Model implements HasPrice, HasTitle {
 
-    public $title;
-    public $price;    
+    use HasPriceTrate;
+
+    public $title;    
     public static $table = 'products';
 
 
-    public function getPrice() {
-
+    public function getTitle() {
+        echo $this->title;
     }
 
 
