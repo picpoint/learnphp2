@@ -3,15 +3,14 @@
 namespace App\Models;
 
 
-
 trait HasPriceTrate {
 
     public $price;
 
+    
     public function getPrice() {
-        echo($this->price);
+        echo $this->price;
     }
-
 
 
 }
