@@ -20,4 +20,11 @@ class Db {
     }
 
 
+    public function execute($sql) {
+        $sth = $this->dbh->prepare($sql);
+        return $sth->execute();
+
+    }
+
+
 }
