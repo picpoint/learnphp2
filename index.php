@@ -8,9 +8,9 @@ require __DIR__ . '/autoload.php';
 
 
 $product = new Product();
-$product -> title = 'Yota Phone X';
-$product -> price = 35000;
-$product -> save();
+$product->title = 'Yota Phone X';
+$product->price = 35000;
+$product->save();
 
 
 

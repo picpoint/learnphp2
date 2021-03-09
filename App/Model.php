@@ -45,28 +45,7 @@ abstract class Model {
     public function save() {
         $db = new Db();
         $props = get_object_vars($this);
-        $keys = [];
-        $values = [];
-        
-        foreach($props as $key => $value) {
-            if($key == 'id') {
-                continue;
-            }
-            $keys[] = $key;
-            $values[] = $value;
-        }
-        
-        // $sql = "INSERT INTO " . static::$table . " (title, price) VALUES (2, 3)";
-        // $db->insert("INSERT INTO `products`(`title`, `price`) VALUES ('test goods', 10000)");
-        $sql = 'INSERT INTO ' . static::$table . ' (' . implode(', ', $keys) . ') VALUES (' . implode(', ', $values) . ')';
-        
-        echo($sql);
-        echo("<br>");
-        print_r($keys);
-        echo("<br>");
-        print_r($values);
-        // die;
-        $db->insert($sql);
+        var_dump($props);
     }
 
     
