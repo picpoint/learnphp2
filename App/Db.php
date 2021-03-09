@@ -26,5 +26,10 @@ class Db {
 
     }
 
+    public function insert($sql) {
+        $sth = $this->dbh -> prepare($sql);
+        return $sth->execute();
+    }
+
 
 }
