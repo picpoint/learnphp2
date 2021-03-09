@@ -46,6 +46,20 @@ abstract class Model {
         $db = new Db();
         $props = get_object_vars($this);
         var_dump($props);
+        echo("<br>");
+        echo("<br>");
+
+        foreach($props as $key => $value) {
+            echo("$key - $value");
+            echo("<br>");
+            
+        }
+
+        $sql = "INSERT INTO " . static::$table;
+
+        echo("<br>");
+        echo("<br>");
+        echo($sql);
     }
 
     
