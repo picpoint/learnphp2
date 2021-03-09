@@ -45,7 +45,8 @@ abstract class Model {
     public function insert() {
         $db = new Db();
         $props = get_object_vars($this);
-        $sql = "INSERT INTO " . static::$table . " (id, title, price) VALUES (" . $props['title'] . ", " . $props['price'] . " ) ";
+        $sql = "INSERT INTO " . static::$table . " (title, price) VALUES (" . $props['title'] . ", " . $props['price'] . " ) ";
+        // $sql = "INSERT INTO " . static::$table . " (title, price) VALUES ('4', '5' ) ";
         return $db->execute($sql);        
     }
 
