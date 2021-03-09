@@ -6,8 +6,18 @@ use App\Models\HasPrice;
 
 require __DIR__ . '/autoload.php';
 
+
+
+
+
+
+
+
+// task 1
+/*
 $config = new App\Conf;
 echo($config -> data()['db']['host']);
+*/
 
 
 
