@@ -6,13 +6,28 @@ use App\Models\HasPrice;
 
 require __DIR__ . '/autoload.php';
 
+$config = new App\Conf;
+echo($config -> data()['db']['host']);
 
 
+
+
+
+
+
+
+
+
+
+
+
+// Work with activeRecord
+/*
 $product = new Product();
 $product->title = "Testing goods";
 $product->price = 12345;
 $product->insert();
-
+*/
 
 
 // Work with interfqce and trate
