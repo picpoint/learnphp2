@@ -48,31 +48,24 @@ abstract class Model {
         var_dump($props);
         echo("<br>");
         echo("<br>");
+        $ks = [];
+        $vls = [];
 
         foreach($props as $key => $value) {
-            echo("$key - $value");
-            echo("<br>");
+            if($key == 'id' || $value == '') {
+                continue;
+            }
+            $ks[] = $key;
+            $vls[] = $value;
             
         }
 
-        $sql = "INSERT INTO " . static::$table;
-
-        echo("<br>");
-        echo("<br>");
+        $sql = "INSERT INTO " . static::$table . " (" . implode(", ", $ks) . ") VALUES (" . implode(", ", $vls) . ")" ;
         echo($sql);
+        $db->insert($sql);
     }
 
     
-
-    /*
-    public function insert() {
-        $db = new Db();
-        $props = get_object_vars($this);
-        $sql = "INSERT INTO " . static::$table . " (title, price) VALUES (" . $props['title'] . ", " . $props['price'] . " ) ";
-        // $sql = "INSERT INTO " . static::$table . " (title, price) VALUES ('4', '5' ) ";
-        return $db->execute($sql);        
-    }
-    */
 
 
 
