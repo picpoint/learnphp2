@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 04 2021 г., 08:56
+-- Время создания: Мар 10 2021 г., 21:11
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -74,7 +74,7 @@ INSERT INTO `news` (`id`, `headline`, `content`) VALUES
 CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` int(11) NOT NULL
+  `price` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -82,10 +82,10 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `price`) VALUES
-(1, 'Blackberry', 15000),
-(2, 'Sony', 17200),
-(3, 'Windows Phone', 13250),
-(4, 'Motorolla', 14459);
+(1, 'Blackberry', '15000'),
+(2, 'Sony', '17200'),
+(3, 'Windows Phone', '13250'),
+(4, 'Motorolla', '14459');
 
 -- --------------------------------------------------------
 
@@ -187,7 +187,7 @@ ALTER TABLE `news`
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
 
 --
 -- AUTO_INCREMENT для таблицы `services`
