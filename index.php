@@ -7,17 +7,15 @@ use App\Models\HasPrice;
 require __DIR__ . '/autoload.php';
 
 
+// task 2
+/*
 $product = new Product();
 $product->title = 'Yota Phone X';
 $product->price = 35000;
 $product->save();
 
-
-
-
-
-
-
+var_dump($product);
+*/
 
 
 // task 1

@@ -48,28 +48,20 @@ abstract class Model {
         $ks = [];
         $vls = [];
         
-        var_dump($props);
-        echo("<br>");
-        echo("<br>");
-        
         foreach($props as $key => $value) {
-            echo("$key - $value");
-            echo("<br>");
-            
-            if('id' == $key) {
+            if($key == 'id') {
                 continue;
             }
+
             $ks[] = $key;
-            $vls[] = $value;
+            $vls[] = $value;            
 
         }
 
-        $vl = implode(", ", $vls);
-
-        echo("<br>");
-        $sql = "INSERT INTO " . static::$table . "(" . implode(", ", $ks) . ") VALUES ('" . implode("', '", $vls). "')";          
-        echo($sql);
+        $sql = "INSERT INTO " . static::$table . " (" . implode(", ", $ks) . ") VALUES ('" . implode("', '",  $vls) . "')";
         $db->insert($sql);
+        $this->id = $db -> lastId();
+
     }
 
     

@@ -31,5 +31,9 @@ class Db {
         return $sth->execute();
     }
 
+    public function lastId() {
+        return $this->dbh->lastInsertId();
+    }
+
 
 }
