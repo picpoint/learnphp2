@@ -45,22 +45,29 @@ abstract class Model {
     public function save() {
         $db = new Db();
         $props = get_object_vars($this);
+        $ks = [];
+        $vls = [];
+        
         var_dump($props);
         echo("<br>");
         echo("<br>");
-        $ks = [];
-        $vls = [];
-
+        
         foreach($props as $key => $value) {
-            if($key == 'id' || $value == '') {
+            echo("$key - $value");
+            echo("<br>");
+            
+            if('id' == $key) {
                 continue;
             }
             $ks[] = $key;
             $vls[] = $value;
-            
+
         }
 
-        $sql = "INSERT INTO " . static::$table . " (" . implode(", ", $ks) . ") VALUES (" . implode(", ", $vls) . ")" ;
+        $vl = implode(", ", $vls);
+
+        echo("<br>");
+        $sql = "INSERT INTO " . static::$table . "(" . implode(", ", $ks) . ") VALUES ('" . implode("', '", $vls). "')";          
         echo($sql);
         $db->insert($sql);
     }
