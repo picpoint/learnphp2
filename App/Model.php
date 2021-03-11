@@ -76,19 +76,24 @@ abstract class Model {
         echo("<br>");
         print_r($currentId);
         echo("<br>");
+        $sqlstr = "";
 
         foreach($props as $key => $value) {
             echo("$key - $value");
             echo("<br>");
 
             if($key == 'id' && $value == NULL) {
-                $value = $currentId;
+                continue;
             }
             
             $ks[] = $key;
             $vls[] = $value;
 
+            $sqlstr = $sqlstr .  " " . $key . "=" . $value; 
+
         }
+
+        echo($sqlstr);
 
         echo("<br>");
         print_r($ks);
@@ -96,11 +101,12 @@ abstract class Model {
         print_r($vls);
         echo("<br>");
 
-        $sql = "UPDATE " . static::$table . " SET ";
+        $sql = "UPDATE " . static::$table . " SET " . $sqlstr . " WHERE id=" . $currentId ;
         // UPDATE `products` SET `id`=[value-1],`title`=[value-2],`price`=[value-3] WHERE 1
 
         echo("<br>");
         echo($sql);
+        $db->insert($sql);
     }
 
     
