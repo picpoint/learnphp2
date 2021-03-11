@@ -66,11 +66,38 @@ abstract class Model {
 
     public function update($currentId) {
         $db = new Db();
+        $ks = [];
+        $vls = [];
 
         $props = get_object_vars($this);
         var_dump($props);
 
-        $sql = "UPDATE " . static::$table ;
+        // $curId = $currentId;
+        echo("<br>");
+        print_r($currentId);
+        echo("<br>");
+
+        foreach($props as $key => $value) {
+            echo("$key - $value");
+            echo("<br>");
+
+            if($key == 'id' && $value == NULL) {
+                $value = $currentId;
+            }
+            
+            $ks[] = $key;
+            $vls[] = $value;
+
+        }
+
+        echo("<br>");
+        print_r($ks);
+        echo("<br>");
+        print_r($vls);
+        echo("<br>");
+
+        $sql = "UPDATE " . static::$table . " SET ";
+        // UPDATE `products` SET `id`=[value-1],`title`=[value-2],`price`=[value-3] WHERE 1
 
         echo("<br>");
         echo($sql);
