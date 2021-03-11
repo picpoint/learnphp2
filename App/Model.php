@@ -93,6 +93,7 @@ abstract class Model {
 
         }
 
+        
         echo($sqlstr);
 
         echo("<br>");
