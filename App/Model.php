@@ -61,7 +61,19 @@ abstract class Model {
         $sql = "INSERT INTO " . static::$table . " (" . implode(", ", $ks) . ") VALUES ('" . implode("', '",  $vls) . "')";
         $db->insert($sql);
         $this->id = $db -> lastId();
+    }
 
+
+    public function update($currentId) {
+        $db = new Db();
+
+        $props = get_object_vars($this);
+        var_dump($props);
+
+        $sql = "UPDATE " . static::$table ;
+
+        echo("<br>");
+        echo($sql);
     }
 
     

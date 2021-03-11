@@ -26,10 +26,18 @@ class Db {
 
     }
 
+    
     public function insert($sql) {
         $sth = $this->dbh -> prepare($sql);
         return $sth->execute();
     }
+
+
+    // public function update($sql) {
+    //     $sth = $this->dbh -> prepare($sql);
+    //     return $sth->execute();
+    // }
+
 
     public function lastId() {
         return $this->dbh->lastInsertId();
