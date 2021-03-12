@@ -69,19 +69,10 @@ abstract class Model {
         $ks = [];
         $vls = [];
 
-        $props = get_object_vars($this);
-        var_dump($props);
-
-        // $curId = $currentId;
-        echo("<br>");
-        print_r($currentId);
-        echo("<br>");
+        $props = get_object_vars($this);        
         $sqlstr = "";
 
-        foreach($props as $key => $value) {
-            echo("$key - $value");
-            echo("<br>");
-
+        foreach($props as $key => $value) {            
             if($key == 'id' && $value == NULL) {
                 continue;
             }
@@ -89,12 +80,14 @@ abstract class Model {
             $ks[] = $key;
             $vls[] = $value;
 
-            $sqlstr = $sqlstr .  " " . $key . "=" . $value; 
+            $sqlstr = $sqlstr .  " '" . $key . "' = " . '\'' . $value . '\', '; 
 
         }
 
         
         echo($sqlstr);
+        echo("<br>");        
+        echo("<br>");
 
         echo("<br>");
         print_r($ks);
