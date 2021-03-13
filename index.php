@@ -8,10 +8,9 @@ require __DIR__ . '/autoload.php';
 
 
 $upd = new Product();
-// $upd->id = 3;
-$upd->title = 'update write';
-$upd->price = 555;
-$upd->update(3);
+$upd->title = 'Black Berry';
+$upd->price = 23000;
+$upd->update(1);
 
 
 

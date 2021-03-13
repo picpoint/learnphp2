@@ -35,11 +35,13 @@ abstract class Model {
     }
 
 
+
     public static function getNLatestNews($quantity) {
         $db = new Db();
         $sql = "(SELECT * FROM " . static::$table . " ORDER BY id DESC limit " . $quantity . ") ORDER BY id ASC";          // DESC - отсортирует по убыванию 3, 2, 1 
         return $db->query($sql, static::class, $arr);                                                                      // ASC - отсортирует по возрастанию 1, 2, 3
     }
+
 
 
     public function save() {
@@ -64,6 +66,7 @@ abstract class Model {
     }
 
 
+    
     public function update($currentId) {
         $db = new Db();
         $ks = [];
@@ -74,32 +77,18 @@ abstract class Model {
 
         foreach($props as $key => $value) {            
             if($key == 'id' && $value == NULL) {
-                continue;
+                $value = $currentId;
             }
             
             $ks[] = $key;
             $vls[] = $value;
 
-            $sqlstr = $sqlstr .  " '" . $key . "' = " . '\'' . $value . '\', '; 
+            $sqlstr = $sqlstr .  " " . $key . " = " . '\'' . $value . '\', '; 
+            $resstr = mb_substr($sqlstr, 0, -2);
 
         }
 
-        
-        echo($sqlstr);
-        echo("<br>");        
-        echo("<br>");
-
-        echo("<br>");
-        print_r($ks);
-        echo("<br>");
-        print_r($vls);
-        echo("<br>");
-
-        $sql = "UPDATE " . static::$table . " SET " . $sqlstr . " WHERE id=" . $currentId ;
-        // UPDATE `products` SET `id`=[value-1],`title`=[value-2],`price`=[value-3] WHERE 1
-
-        echo("<br>");
-        echo($sql);
+        $sql = "UPDATE " . static::$table . " SET " . $resstr . " WHERE id=" . $currentId;
         $db->insert($sql);
     }
 
