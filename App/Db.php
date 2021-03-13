@@ -13,11 +13,13 @@ class Db {
     }
 
 
+    
     public function query($sql, $class) {
         $sth = $this->dbh -> prepare($sql);
         $sth -> execute();
         return $sth -> fetchAll(\PDO::FETCH_CLASS, $class);
     }
+
 
 
     public function execute($sql) {
@@ -26,17 +28,13 @@ class Db {
 
     }
 
+
     
     public function insert($sql) {
         $sth = $this->dbh -> prepare($sql);
         return $sth->execute();
     }
 
-
-    // public function update($sql) {
-    //     $sth = $this->dbh -> prepare($sql);
-    //     return $sth->execute();
-    // }
 
 
     public function lastId() {

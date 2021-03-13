@@ -66,7 +66,7 @@ abstract class Model {
     }
 
 
-    
+
     public function update($currentId) {
         $db = new Db();
         $ks = [];
@@ -92,7 +92,11 @@ abstract class Model {
         $db->insert($sql);
     }
 
-    
+
+
+    public function saves() {
+        
+    }    
 
 
 
