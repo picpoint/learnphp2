@@ -1,7 +1,10 @@
 <?php
 
-namespace Views;
+require __DIR__ . '/../autoload.php';
+
+// namespace Views;
 use App\Model;
+use App\Models;
 
 echo($_GET['id']);
 
