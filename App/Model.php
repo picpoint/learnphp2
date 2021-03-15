@@ -94,9 +94,23 @@ abstract class Model {
 
 
 
-    public function saves() {
-        
+    public function saves($currentId) {
+        $db = new Db();                
+        $this->id = $currentId;
+        echo($this->id);
+
+        if($this->id == 0) {
+            $this->save();
+        } else {
+            $this->update($currentId);
+        }
     }    
+
+
+
+    public function delete() {
+        
+    }
 
 
 

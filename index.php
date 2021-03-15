@@ -12,6 +12,16 @@ require __DIR__ . '/autoload.php';
 
 
 
+// task 3
+/*
+$prod = new Product();
+$prod -> title = "New record";
+$prod -> price = 123456;
+$prod -> saves(1);
+*/
+
+
+
 
 // task 2.1
 /*
