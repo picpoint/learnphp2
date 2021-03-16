@@ -15,7 +15,7 @@ foreach($allnews as $nws) {
         }
         
         if($key == 'headline') {
-            echo("<a href=" . "?id=$id" . " >$value</a>");
+            echo("<a href=" . "/news.php?id=$id" . " >$value</a>");
             echo("<br>");
             echo("<br>");
         }

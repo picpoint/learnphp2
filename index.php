@@ -8,6 +8,14 @@ require __DIR__ . '/autoload.php';
 
 
 
+?>
+
+<a href="/02/Views/papers.php">Papers</a>
+
+<?php
+
+// $paper = \App\Models\Paper::getAll();
+// var_dump($paper);
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 10 2021 г., 21:11
+-- Время создания: Мар 16 2021 г., 16:04
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.4.5
 
@@ -68,13 +68,34 @@ INSERT INTO `news` (`id`, `headline`, `content`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Структура таблицы `posts`
+--
+
+CREATE TABLE `posts` (
+  `id` bigint(20) UNSIGNED NOT NULL,
+  `heading` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `content` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `posts`
+--
+
+INSERT INTO `posts` (`id`, `heading`, `content`) VALUES
+(1, 'Flutter вот-вот завоюет Web', 'Современные Web-сайты пишутся на HTML, JavaScript и CSS (и этот сайт в том числе). Наверно, вы сейчас прочитали это и подумали «да это же очевидно». А если я вам скажу, что можно написать сайт без использования этих трех технологий, у вас наверняка возникнут вопросы…'),
+(2, 'Разбираем кварцевый генератор и его крохотную интегральную схему', 'Кварцевый генератор – важный электронный компонент, обеспечивающий очень точную генерацию тактовой частоты за небольшие деньги. Из-за пьезоэлектрического эффекта его электрические свойства меняются в процессе вибрации. Поскольку можно сделать кристалл, который будет вибрировать с определённой частотой, кварцевые генераторы очень полезны для множества применений. Появились они в 1920-х, и сначала обеспечивали точную генерацию волн для радиостанций. В 1970-м году произошла революция наручных часов, когда в них стали использовать кварцевые генераторы высокой точности. Компьютеры, от ENIAC 1940-х годов и до сей поры используют кварцевые генераторы для генерации тактовой частоты.'),
+(3, 'JavaScript prototype pollution: практика поиска и эксплуатации', 'Если вы следите за отчетами исследователей, которые участвуют в bug bounty программах, то наверняка знаете про категорию уязвимостей JavaScript prototype pollution. А если не следите и встречаете это словосочетание впервые, то предлагаю вам закрыть этот пробел, ведь эта уязвимость может привести к полной компрометации сервера и клиента. Наверняка хотя бы один продуктов вашей (или не вашей) компании работает на JavaScript: клиентская часть веб-приложения, десктоп (Electron), сервер (NodeJS) или мобильное приложение.');
+
+-- --------------------------------------------------------
+
+--
 -- Структура таблицы `products`
 --
 
 CREATE TABLE `products` (
   `id` bigint(20) UNSIGNED NOT NULL,
   `title` text COLLATE utf8mb4_unicode_ci NOT NULL,
-  `price` varchar(100) COLLATE utf8mb4_unicode_ci NOT NULL
+  `price` int(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
@@ -82,10 +103,11 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `price`) VALUES
-(1, 'Blackberry', '15000'),
-(2, 'Sony', '17200'),
-(3, 'Windows Phone', '13250'),
-(4, 'Motorolla', '14459');
+(1, 'New record', 123456),
+(2, 'Sony', 17200),
+(3, 'Windows Phone', 13250),
+(4, 'Motorolla', 14459),
+(36, 'Yota Phone X', 35000);
 
 -- --------------------------------------------------------
 
@@ -148,6 +170,13 @@ ALTER TABLE `news`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Индексы таблицы `posts`
+--
+ALTER TABLE `posts`
+  ADD PRIMARY KEY (`id`),
+  ADD UNIQUE KEY `id` (`id`);
+
+--
 -- Индексы таблицы `products`
 --
 ALTER TABLE `products`
@@ -184,10 +213,16 @@ ALTER TABLE `news`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
+-- AUTO_INCREMENT для таблицы `posts`
+--
+ALTER TABLE `posts`
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
 -- AUTO_INCREMENT для таблицы `products`
 --
 ALTER TABLE `products`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=43;
 
 --
 -- AUTO_INCREMENT для таблицы `services`
