@@ -5,7 +5,6 @@ require __DIR__ . '/../autoload.php';
 $papers = \App\Models\Paper::getAll();
 
 
-
 foreach($papers as $paper) {
     foreach($paper as $key => $value) {
         // echo("$key - $value");
@@ -30,7 +29,7 @@ foreach($papers as $paper) {
 
 
 
-<form action="" method="post">
+<form method="post">
     <input type="text" placeholder="заголовок" name="pprtitl">
     <br>
     <br>
@@ -44,6 +43,18 @@ foreach($papers as $paper) {
 <?php
 
 if(isset($_POST['pprsend'])) {
-    $sv = new \App\Models\Paper();
-    $sv -> save();
+    if (!empty($_POST['pprtitl']) && !empty($_POST['pprcont'])) {
+        $sv = new \App\Models\Paper();
+        $sv -> heading = $_POST['pprtitl'];
+        $sv -> content = $_POST['pprcont'];
+        $sv -> save();
+        $_POST['pprtitl'] = NULL; 
+        $_POST['pprcont'] = NULL;
+    }    
+        
 }
+
+// $_POST['pprtitl'] = ''; 
+// $_POST['pprcont'] = '';
+
+
