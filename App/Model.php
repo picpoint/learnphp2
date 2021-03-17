@@ -108,8 +108,10 @@ abstract class Model {
 
 
 
-    public function delete() {
-        
+    public function delete($id) {
+        $db = new Db();
+        $sql = "DELETE FROM " . static::$table . " WHERE id=" . $id;
+        return $db->execute($sql);
     }
 
 

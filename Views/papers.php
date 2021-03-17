@@ -5,6 +5,20 @@ require __DIR__ . '/../autoload.php';
 $papers = \App\Models\Paper::getAll();
 
 
+
+if(isset($_POST['pprsend'])) {
+    if (!empty($_POST['pprtitl']) && !empty($_POST['pprcont'])) {
+        $sv = new \App\Models\Paper();
+        $sv -> heading = $_POST['pprtitl'];
+        $sv -> content = $_POST['pprcont'];
+        $sv -> save();
+        header ('Location: papers.php');
+    }        
+        
+}
+
+
+
 foreach($papers as $paper) {
     foreach($paper as $key => $value) {
         // echo("$key - $value");
@@ -24,7 +38,6 @@ foreach($papers as $paper) {
 
 }
 
-
 ?>
 
 
@@ -37,24 +50,4 @@ foreach($papers as $paper) {
     <br>
     <button type="submit" name="pprsend">ОТПРАВИТЬ</button>
 </form>
-
-
-
-<?php
-
-if(isset($_POST['pprsend'])) {
-    if (!empty($_POST['pprtitl']) && !empty($_POST['pprcont'])) {
-        $sv = new \App\Models\Paper();
-        $sv -> heading = $_POST['pprtitl'];
-        $sv -> content = $_POST['pprcont'];
-        $sv -> save();
-        $_POST['pprtitl'] = NULL; 
-        $_POST['pprcont'] = NULL;
-    }    
-        
-}
-
-// $_POST['pprtitl'] = ''; 
-// $_POST['pprcont'] = '';
-
 
