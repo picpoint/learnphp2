@@ -8,17 +8,24 @@ require __DIR__ . '/../autoload.php';
 // echo("<br>");
 
 $ctn = \App\Models\Paper::findById($_GET['id']);
-print_r($ctn);
 
-foreach($ctn as $key => $value) {
-    echo("$key - $value");
-    echo("<br>");
-    echo("<br>");
+$hd = '';
+$ct = '';
+
+foreach($ctn as $c) {
+    foreach($c as $key => $value) {
+        if($key == 'heading') {
+            $hd = $value;
+        }
+    
+        if($key == 'content') {
+            $ct = $value;
+        }
+    }
+
 }
 
-echo("<br>");
-echo("<br>");
-echo("<br>");
+
 
 
 
@@ -26,6 +33,15 @@ if(isset($_POST['delpost'])) {
     $del = new \App\Models\Paper();
     $del -> delete($_GET['id']);
     header("Location: papers.php");
+}
+
+
+if(isset($_POST['btnedit'])) {
+    if(!empty($hd) && !empty($ct)) {
+        $upd = new App\Models\Paper();
+        $upd -> update($_GET['id']);
+        header("Location: papers.php");
+    }
 }
 
 
@@ -69,11 +85,13 @@ foreach($findOne as $fon) {
 
 
 <form name="editcurpost" method="post">
-    <input type="text" name="hdrpost">
+    <input type="text" name="hdredit" value="<?php echo($hd);?>">
     <br>
-    <textarea name="cntnpost" id="" cols="30" rows="10"></textarea>
+    <textarea name="cntedit" id="" cols="30" rows="10">
+        <?php echo($ct);?>
+    </textarea>
     <br>
     <br>
-    <button type="submit">РЕДАКТИРОВАТЬ</button>
+    <button type="submit" name="btnedit">РЕДАКТИРОВАТЬ</button>
 </form>
 
