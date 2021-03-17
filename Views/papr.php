@@ -6,9 +6,9 @@ require __DIR__ . '/../autoload.php';
 // echo("<br>");
 // echo("<br>");
 
-echo($_GET['id']);
-echo("<br>");
-echo("<br>");
+// echo($_GET['id']);
+// echo("<br>");
+// echo("<br>");
 
 
 $findOne = \App\Models\Paper::findById($_GET['id']);
