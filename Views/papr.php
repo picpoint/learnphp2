@@ -39,6 +39,8 @@ if(isset($_POST['delpost'])) {
 if(isset($_POST['btnedit'])) {
     if(!empty($hd) && !empty($ct)) {
         $upd = new App\Models\Paper();
+        $upd -> heading = $_POST['hdredit'];
+        $upd -> content = $_POST['cntedit'];
         $upd -> update($_GET['id']);
         header("Location: papers.php");
     }

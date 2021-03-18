@@ -7,8 +7,15 @@ class Db {
 
     protected $dbh;
 
+
+    public static function instance() {
+        return new self();
+    }
+
+
     public function __construct() {
-        $config = (require __DIR__ . '/../config.php')['db'];
+        // $config = (require __DIR__ . '/../config.php')['db'];
+        $config = Conf::confInst();
         $this->dbh = new \PDO('mysql:host=' . $config['host'] . ';dbname=' . $config['dbname'], $config['user'], $config['password']);
     }
 

@@ -13,7 +13,7 @@ abstract class Model {
 
 
     public static function getAll() {
-        $db = new Db();
+        $db = Db::instance();
         // $class = get_called_class();
         $sql = "SELECT * FROM " . static::$table;
         return $db->query($sql, static::class);
@@ -45,7 +45,7 @@ abstract class Model {
 
 
     public function save() {
-        $db = new Db();
+        $db = Db::instance();
         $props = get_object_vars($this);
         $ks = [];
         $vls = [];
