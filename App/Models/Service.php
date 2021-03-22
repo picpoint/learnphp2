@@ -10,6 +10,10 @@ class Service extends Model implements HasPrice {
     public $title;
     public static $table = 'services';
 
+    public function getPrice() {
+        
+    }
+
     
     
 }
