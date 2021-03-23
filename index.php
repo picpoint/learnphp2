@@ -9,12 +9,28 @@ require __DIR__ . '/autoload.php';
 
 
 
+$view = new View();
+$view -> products = Product::getAll();
+$view -> services = Service::getAll();
+$view -> display(__DIR__ . '/Views/showTables.php');
 
+
+
+
+
+
+
+
+
+/**
+ * Таблица с данными продуктов и сервисов
+ */
+/*
 $view = new View();
 $view -> data['products'] = Product::getAll();
 $view -> data['services'] = Service::getAll();
 $view -> display(__DIR__ . '/Views/showTables.php');
-
+*/
 
 
 

@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Хост: 127.0.0.1:3306
--- Время создания: Мар 17 2021 г., 21:14
+-- Время создания: Мар 23 2021 г., 22:15
 -- Версия сервера: 10.3.22-MariaDB
 -- Версия PHP: 7.1.33
 
@@ -41,6 +41,27 @@ INSERT INTO `articles` (`id`, `title`, `content`) VALUES
 (1, 'Видео посадки ровера \"Персеверанс\" на Марс', 'Американское управление по аэронавтике и космическим исследованиями обнародовало захватывающие кадры посадки нового марсохода на поверхность Красной планеты.'),
 (2, 'Астрономы надеялись найти одну черную дыру.', 'Космический телескоп \"Хаббл\" помог обнаружить скопление черных дыр в шаровом кластере в созвездии Жертвенника.'),
 (3, 'Разработку сверхтяжелой космической ракеты \"Енисей\" приостановили.', '\"Здесь ситуация достаточно сложная… Сегодня возможна коррекция ее облика, поэтому сейчас этот вопрос еще до конца не решен. Возможна коррекция именно технического облика ракеты, - заявил гендиректор центра \"Прогресс\" Дмитрий Баранов (цитата по РИА Новости). - Поэтому сейчас работы, я бы так сказал, поставлены на паузу. Мы готовы продолжить работу после того, как соответствующее решение будет принято. Я думаю, что это вопрос нескольких месяцев, я бы так сказал\".');
+
+-- --------------------------------------------------------
+
+--
+-- Структура таблицы `autors`
+--
+
+CREATE TABLE `autors` (
+  `autor_id` bigint(20) UNSIGNED NOT NULL,
+  `firstname` text COLLATE utf8mb4_unicode_ci NOT NULL,
+  `lastname` text COLLATE utf8mb4_unicode_ci NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Дамп данных таблицы `autors`
+--
+
+INSERT INTO `autors` (`autor_id`, `firstname`, `lastname`) VALUES
+(1, 'Пупкин', 'Иван'),
+(2, 'Петров', 'Игорь'),
+(3, 'Сидоров', 'Максим');
 
 -- --------------------------------------------------------
 
@@ -104,7 +125,7 @@ CREATE TABLE `products` (
 --
 
 INSERT INTO `products` (`id`, `title`, `price`) VALUES
-(1, 'New record', 123456),
+(1, 'Nokia N73', 17129),
 (2, 'Sony', 17200),
 (3, 'Windows Phone', 13250),
 (4, 'Motorolla', 14459),
@@ -164,6 +185,13 @@ ALTER TABLE `articles`
   ADD UNIQUE KEY `id` (`id`);
 
 --
+-- Индексы таблицы `autors`
+--
+ALTER TABLE `autors`
+  ADD PRIMARY KEY (`autor_id`),
+  ADD UNIQUE KEY `autor_id` (`autor_id`);
+
+--
 -- Индексы таблицы `news`
 --
 ALTER TABLE `news`
@@ -206,6 +234,12 @@ ALTER TABLE `users`
 --
 ALTER TABLE `articles`
   MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
+
+--
+-- AUTO_INCREMENT для таблицы `autors`
+--
+ALTER TABLE `autors`
+  MODIFY `autor_id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT для таблицы `news`
