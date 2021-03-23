@@ -45,13 +45,13 @@
             <th>Цена</th>
         </tr>
 
-        <?php foreach($this->data['services'] as $serv) { ?>
+        <?php foreach($this->data['services'] as $serv) : ?>
             <tr>
                 <td> <?php echo $serv -> id ?> </td>
                 <td> <?php echo $serv -> title ?> </td>
                 <td> <?php echo $serv -> price ?> </td>
             </tr> 
-        <?php } ?>
+        <?php endforeach; ?>
 
 
     </table>

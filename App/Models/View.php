@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-// include __DIR__ . '/../../autoload.php';
 
 
 class View {
