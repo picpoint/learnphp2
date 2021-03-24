@@ -13,6 +13,4 @@ class Author extends Model {
 
 
 
-
-
 }
