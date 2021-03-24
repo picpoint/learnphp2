@@ -8,6 +8,12 @@ use App\Models\View;
 require __DIR__ . '/autoload.php';
 
 
+?>
+
+<a href="/03/Views/news.php">Views</a>
+
+<?php
+
 
 
 
