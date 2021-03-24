@@ -9,15 +9,22 @@ require __DIR__ . '/autoload.php';
 
 
 
-$view = new View();
-$view -> products = Product::getAll();
-$view -> services = Service::getAll();
-$view -> display(__DIR__ . '/Views/showTables.php');
 
 
 
 
 
+
+
+/**
+ * Задание 2.
+ * методы __get, __set, __isset вынесены в trait ViewTrate
+ * 
+ * $view = new View();
+ * $view -> products = Product::getAll();
+ * $view -> services = Service::getAll();
+ * $view -> display(__DIR__ . '/Views/showTables.php');
+ */
 
 
 
