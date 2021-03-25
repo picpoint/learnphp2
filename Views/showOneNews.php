@@ -7,20 +7,23 @@
     <title>Document</title>
 </head>
 <body>
-    
-    <?php
-        // print_r($this -> data);
 
-        foreach($this->data as $dt) {
-            
-        }
-    ?>
-
-    <h2>Заголовок</h2>
-    <em>Статья</em>
-    <br>
-    <b>Автор</b>
-    
+    <?php foreach($this->data as $dt): ?>
+        <h2><?php echo $dt -> headline; ?></h2>
+        <em><?php echo $dt -> content; ?></em>
+        <br>
+        <b>
+            <?php  if(!empty($dt -> author_id)) {
+                        echo $dt -> author_id;
+                        echo("<br>");
+                        $auth = App\Models\Author::findById($dt->author_id);
+                        print_r($auth);
+                    } else { 
+                        echo("author is empty...");
+                    } 
+            ?>
+        </b>
+    <?php endforeach; ?>
     
 
 </body>
