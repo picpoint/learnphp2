@@ -8,15 +8,20 @@
 </head>
 <body>
     
+    <?php
+        // print_r($this -> data);
+
+        foreach($this->data as $dt) {
+            
+        }
+    ?>
 
     <h2>Заголовок</h2>
     <em>Статья</em>
     <br>
     <b>Автор</b>
     
-    <?php
-        print_r($oneNew);
-    ?>
+    
 
 </body>
 </html>

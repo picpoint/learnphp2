@@ -13,6 +13,9 @@ echo("<br>");
 echo("<br>");
 
 $viewNews = new View();
-$viewNews -> data['headline'] = $oneNew;
-$viewNews -> data['content'] = $oneNew;
+$viewNews -> data = $oneNew;
+// $viewNews -> data['content'] = $oneNew;
+
+// print_r($viewNews);
+
 $viewNews -> display(__DIR__ . '/showOneNews.php');
