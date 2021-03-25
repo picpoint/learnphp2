@@ -8,6 +8,7 @@
 </head>
 <body>
 
+
     <?php foreach($this->data as $dt): ?>
         <h2><?php echo $dt -> headline; ?></h2>
         <em><?php echo $dt -> content; ?></em>
