@@ -1,12 +1,13 @@
 <?php
 
-require __DIR__ . '/../autoload.php';
+// require __DIR__ . '/../../autoload.php';
 
 namespace App\Models;
+use App\Model;
 
 
 
-class View {
+class View extends Model {
 
     /**
      * добавлены 3 с-ва __set, __get, __isset в трейт

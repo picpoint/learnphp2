@@ -8,12 +8,15 @@
 </head>
 <body>
     
-    
+
     <h2>Заголовок</h2>
     <em>Статья</em>
     <br>
     <b>Автор</b>
     
+    <?php
+        print_r($oneNew);
+    ?>
 
 </body>
 </html>
