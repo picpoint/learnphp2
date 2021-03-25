@@ -35,6 +35,23 @@ abstract class Model {
     }
 
 
+    /**
+     * Добавлен новый метод, т.к была заведена таблица с полем author_id
+     */
+    public static function findByIdAuthr($id) {
+        $db = new Db();
+        $sql = "SELECT * FROM " . static::$table . " WHERE author_id = " . $id;
+        $resFind = $db->query($sql, static::class, static::$arr);
+
+        if(!empty($resFind)) {
+            return $resFind;
+        } else {
+            return "false";
+        }
+
+    }
+
+
 
     public static function getNLatestNews($quantity) {
         $db = new Db();

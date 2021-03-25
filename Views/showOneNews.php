@@ -8,19 +8,31 @@
 </head>
 <body>
 
-
+    <?php
+        /**
+         * перебираем массив статьи и выводим саму статью
+         */
+    ?>
     <?php foreach($this->data as $dt): ?>
         <h2><?php echo $dt -> headline; ?></h2>
         <em><?php echo $dt -> content; ?></em>
         <br>
         <b>
             <?php  if(!empty($dt -> author_id)) {
-                        echo $dt -> author_id;
                         echo("<br>");
-                        $auth = App\Models\Author::findById($dt->author_id);
-                        print_r($auth);
+                        $authr = App\Models\Author::findByIdAuthr($dt->author_id);
+                        /**
+                         * перебираем объект автора и выводим фио автора статьи 
+                         */
+                        foreach($authr as $auth) {
+                            echo("Автор статьи: ");
+                            echo $auth -> firstname;
+                            echo(" ");
+                            echo $auth -> lastname;
+                        }
+
                     } else { 
-                        echo("author is empty...");
+                        echo("автор не известен... ");
                     } 
             ?>
         </b>
