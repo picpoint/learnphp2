@@ -7,7 +7,7 @@ use App\Model;
 
 
 
-class View extends Model {
+class View extends Model /*implements Countable*/ {
 
     /**
      * добавлены 3 с-ва __set, __get, __isset в трейт
@@ -20,6 +20,11 @@ class View extends Model {
 
     public function display(string $template) {
         include $template;
+    }
+
+
+    public function count() {
+        return count($this->data);
     }
 
 

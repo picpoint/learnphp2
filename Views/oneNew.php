@@ -15,3 +15,9 @@ $oneNew = App\Models\News::findById($_GET['id']);
 $viewNews = new View();
 $viewNews -> data = $oneNew;
 $viewNews -> display(__DIR__ . '/showOneNews.php');
+
+
+/**
+ * вывод интерфейса Countable
+ */
+// echo(count($viewNews));
