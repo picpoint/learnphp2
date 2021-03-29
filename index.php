@@ -25,12 +25,36 @@ require __DIR__ . '/autoload.php';
 /**
  * Задание 2.
  * методы __get, __set, __isset вынесены в trait ViewTrate
- * 
- * $view = new View();
- * $view -> products = Product::getAll();
- * $view -> services = Service::getAll();
- * $view -> display(__DIR__ . '/Views/showTables.php');
  */
+ 
+$view = new View();
+$view -> products = Product::getAll();
+$view -> services = Service::getAll();
+$view -> display(__DIR__ . '/Views/showTables.php');
+
+
+/**
+ * Задание 6*
+ */
+echo("<br>");
+echo("Вывод счетчика через интерфейс Countable");
+echo("<br>");
+print_r($view -> count());
+
+
+echo("<br>");
+echo("<br>");
+echo("<br>");
+echo("Вывод итераций через интерфейс Iterator");
+echo("<br>");
+echo("<br>");
+
+
+foreach($view as $key => $value) {    
+    var_dump("$key - $value");
+    echo("<br>");
+}
+ 
 
 
 
