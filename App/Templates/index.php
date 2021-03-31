@@ -9,7 +9,10 @@
 <body>
 
     <?php
-        print_r($view);
+        foreach($this->data as $dt) {
+            print_r($dt);
+            echo("<br>");
+        }
     ?>
     
 </body>
