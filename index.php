@@ -8,6 +8,5 @@ use App\Models\View;
 require __DIR__ . '/autoload.php';
 
 
-
-$controller = new App\Controllers\Sensation();
-$controller -> actionIndex();
+$ctrl = new App\Controllers\IndexCtrl();
+$ctrl -> action('Index');
