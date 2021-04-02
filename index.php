@@ -8,5 +8,20 @@ use App\Models\View;
 require __DIR__ . '/autoload.php';
 
 
-$ctrl = new App\Controllers\IndexCtrl();
-$ctrl -> action('Index');
+
+$allnews = new App\Controllers\NewsAll();
+$allnews -> actionNewsAll();
+
+
+
+
+
+
+
+
+
+/**
+ * задание 1
+ * $ctrl = new App\Controllers\IndexCtrl();
+ * $ctrl -> action('Index');
+ */
