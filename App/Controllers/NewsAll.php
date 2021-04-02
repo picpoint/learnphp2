@@ -4,15 +4,7 @@ namespace App\Controllers;
 use App\Models\View;
 
 
-class NewsAll {
-
-    protected $view;
-
-    public function __construct() {
-        $this->view = new View();
-    }
-
-
+class NewsAll extends IndexCtrl {
 
     public function actionNewsAll() {
         $this->view -> news = \App\Models\News::getAll();

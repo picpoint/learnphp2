@@ -4,7 +4,7 @@ namespace App\Controllers;
 use App\Models\View;
 
 
-class IndexCtrl {
+abstract class IndexCtrl {
 
     protected $view;
 
