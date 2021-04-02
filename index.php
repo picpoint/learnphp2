@@ -9,11 +9,18 @@ require __DIR__ . '/autoload.php';
 
 
 
-$allnews = new App\Controllers\NewsAll();
-$allnews -> actionNewsAll();
+/**
+ * задание 2.1
+ 
+ * контроллер для одной новости
+ * $oneNews = new App\Controllers\NewsOne();
+ * $oneNews -> actionOneNews();
 
-
-
+ * контроллер для всех новостей
+ * $allnews = new App\Controllers\NewsAll();
+ * $allnews -> actionNewsAll();
+ * 
+ */
 
 
 
@@ -22,6 +29,8 @@ $allnews -> actionNewsAll();
 
 /**
  * задание 1
+ * написан клас контроллера сделан метод action($action)
+ * 
  * $ctrl = new App\Controllers\IndexCtrl();
  * $ctrl -> action('Index');
  */

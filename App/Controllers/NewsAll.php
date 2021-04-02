@@ -15,7 +15,7 @@ class NewsAll {
 
 
     public function actionNewsAll() {
-        $this->view -> pst = 'SOME POST';
+        $this->view -> news = \App\Models\News::getAll();
         $this->view -> display(__DIR__ . '/../../Views/allNews.php');
     }
 

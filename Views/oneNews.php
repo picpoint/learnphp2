@@ -7,16 +7,14 @@
     <title>Document</title>
 </head>
 <body>
-
+    
     <?php
-        foreach($this->news as $new) {            
-            ?> <b><?php echo($new -> headline); ?></b> <?php
+        foreach($this->oneNews as $onNws) {
+            ?> <b> <?php echo($onNws->headline); ?> </b> <?php            
             echo("<br>");
-            echo($new -> content);
-            echo("<br>");
-            echo("<br>");
+            echo($onNws->content);
         }
     ?>
-    
+
 </body>
 </html>
