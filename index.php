@@ -8,15 +8,11 @@ use App\Models\View;
 require __DIR__ . '/autoload.php';
 
 
-$onNws = new App\Controllers\NewsAllAdmin();
-$onNws -> actionOne($_GET['id']);
 
 
-
-//$admNews = new App\Controllers\NewsAllAdmin();
-//$admNews -> actionNewsAllAdmin();
-
-
+$allNws = new App\Controllers\News();
+//$allNws -> actionAllNews();
+$allNws -> actionOneNews($_GET['id']);
 
 
 
