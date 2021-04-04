@@ -11,7 +11,7 @@ require __DIR__ . '/autoload.php';
 
 
 $nws = new App\Controllers\News();
-$action = $_GET['action'] ?: 'index';
+$action = $_GET['action'] ?: 'Index';
 $nws -> action($action);
 
 //$allNws -> actionAllNews();

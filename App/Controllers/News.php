@@ -21,7 +21,7 @@ class News
         return $this->$methName();
     }
 
-    public function actionAllNews() {
+    public function actionIndex() {
         $this->view -> nws = \App\Models\News::getAll();
         $this->view ->display(__DIR__ . '/../../Views/NewsTmpl.php');
     }
