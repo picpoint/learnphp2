@@ -10,10 +10,10 @@
 <body>
 
     <?php
-        foreach ($this->nws as $nws) {
-            ?> <b> <?php print_r($nws -> headline);?> </b> <?php
+        foreach ($this->nws as $ns) {
+            ?> <b> <?php print_r($ns -> headline);?> </b> <?php
             echo "<br>";
-            print_r($nws -> content);
+            print_r($ns -> content);
             echo "<br>";
             echo "<br>";
         }
