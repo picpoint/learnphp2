@@ -35,12 +35,13 @@ class News
     }
 
     public function actionAdmin() {
-
-        $this->view -> nws = \App\Models\News::findById($this->id);
+        $id = $_GET['id'];
+        $this->view -> nws = \App\Models\News::findById($id);
         $this->view -> display(__DIR__ . '/../Templates/adminNews.php');
 
         if(isset($_POST['btnsave'])) {
-            $this->view -> nws = new \App\Models\News
+            $res = new \App\Models\News();
+            $res -> update($id);
         }
     }
 
