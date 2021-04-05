@@ -30,14 +30,18 @@ class News
 
 
     public function actionOne() {
-//        $id = $_GET['id'];
         $this->view -> nws = \App\Models\News::findById($this->id);
         $this->view -> display(__DIR__ . '/../../Views/NewsTmpl.php');
     }
 
     public function actionAdmin() {
+
         $this->view -> nws = \App\Models\News::findById($this->id);
         $this->view -> display(__DIR__ . '/../Templates/adminNews.php');
+
+        if(isset($_POST['btnsave'])) {
+            $this->view -> nws = new \App\Models\News
+        }
     }
 
 

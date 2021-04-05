@@ -28,12 +28,14 @@
     <br>
 
     <form method="post">
-        <input type="text" name="hdln">
+        <input type="text" name="hdln" value=" <?php echo $nws->headline; ?> ">
         <br>
-        <textarea name="cntnt" cols="30" rows="10"></textarea>
+        <textarea name="cntnt" cols="30" rows="10">
+            <?php echo $nws->content; ?>
+        </textarea>
         <br>
         <br>
-        <button type="submit" style="background-color:green">СОХРАНИТЬ</button>
+        <button type="submit" name="btnsave" style="background-color:green">СОХРАНИТЬ</button>
     </form>
 
 
