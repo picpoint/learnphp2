@@ -34,6 +34,9 @@ class News
         $this->view -> display(__DIR__ . '/../../Views/NewsTmpl.php');
     }
 
+    /**
+     * work with this method
+     */
     public function actionAdmin() {
         $id = $_GET['id'];
         $this->view -> nws = \App\Models\News::findById($id);
