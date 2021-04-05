@@ -9,10 +9,12 @@ class News
 {
 
     protected $view;
+    protected $id;
 
     public function __construct()
     {
         $this->view = new View();
+        $this->id = $_GET['id'];
     }
 
 
@@ -28,9 +30,14 @@ class News
 
 
     public function actionOne() {
-        $id = $_GET['id'];
-        $this->view -> nws = \App\Models\News::findById($id);
+//        $id = $_GET['id'];
+        $this->view -> nws = \App\Models\News::findById($this->id);
         $this->view -> display(__DIR__ . '/../../Views/NewsTmpl.php');
+    }
+
+    public function actionAdmin() {
+        $this->view -> nws = \App\Models\News::findById($this->id);
+        $this->view -> display(__DIR__ . '/../Templates/adminNews.php');
     }
 
 

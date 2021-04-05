@@ -9,15 +9,12 @@ require __DIR__ . '/autoload.php';
 
 
 
-print_r($_SERVER['REQUEST_URI']);
-die;
 
 $nws = new App\Controllers\News();
 $action = $_GET['action'] ?: 'Index';
 $nws -> action($action);
 
-//$allNws -> actionAllNews();
-//$allNws -> actionOne($_GET['id']);
+
 
 
 
