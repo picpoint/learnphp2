@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\HasPrice;
@@ -9,6 +9,8 @@ require __DIR__ . '/autoload.php';
 
 
 
+print_r($_SERVER['REQUEST_URI']);
+die;
 
 $nws = new App\Controllers\News();
 $action = $_GET['action'] ?: 'Index';
