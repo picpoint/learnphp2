@@ -8,7 +8,7 @@ use App\Model;
 
 class News extends Model {
 
-    public static $table = 'news';
+    public static $table = 'newss';
 
 
 }
