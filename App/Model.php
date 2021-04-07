@@ -115,10 +115,11 @@ abstract class Model {
 
     public function upd($currentId) {
         $db = new Db();
-        $sql = "UPDATE " . static::$table . " SET " . " headline=123, " . " content=321 WHERE id=" . $currentId;
+        $prop = get_object_vars($this);
+        $hdln = $_POST['hdln'];
+        $cntnt = $_POST['cntnt'];
+        $sql = "UPDATE " . static::$table . " SET headline='$hdln', " . "content='$cntnt' WHERE id=" . $currentId;
         $db->insert($sql);
-
-//        UPDATE `newss` SET `id`=[value-1],`headline`=[value-2],`content`=[value-3] WHERE 1
     }
 
 
