@@ -40,11 +40,13 @@ class News
         $this->view -> nws = \App\Models\News::findById($this->id);
         $this->view -> display(__DIR__ . '/../Templates/adminNews.php');
 
-        var_dump($this->id);
-
         if(isset($_POST['btnsave'])) {
             $res = new \App\Models\News();
-            $res -> update($this->id);
+            $res -> upd($this->id);
+//
+//            $res -> update($this->id);
+
+//            print_r($res -> findByIdAuthr($this->id));
         }
     }
 

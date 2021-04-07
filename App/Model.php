@@ -113,6 +113,16 @@ abstract class Model {
 
 
 
+    public function upd($currentId) {
+        $db = new Db();
+        $sql = "UPDATE " . static::$table . " SET " . " headline=123, " . " content=321 WHERE id=" . $currentId;
+        $db->insert($sql);
+
+//        UPDATE `newss` SET `id`=[value-1],`headline`=[value-2],`content`=[value-3] WHERE 1
+    }
+
+
+
     public function saves($currentId) {
         $db = new Db();                
         $this->id = $currentId;
