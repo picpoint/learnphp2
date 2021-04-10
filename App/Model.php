@@ -64,6 +64,8 @@ abstract class Model {
     public function save() {
         $db = Db::instance();
         $props = get_object_vars($this);
+        var_dump($props);
+        die;
         $ks = [];
         $vls = [];
 
@@ -91,8 +93,6 @@ abstract class Model {
 
         $props = get_object_vars($this);
         $sqlstr = "";
-//        var_dump($props);
-//        die();
 
         foreach($props as $key => $value) {
             if($key == 'id' && $value == NULL) {
