@@ -4,8 +4,6 @@ namespace App;
 
 
 
-use Couchbase\Exception;
-
 abstract class Model {
 
     public static $table = '';
@@ -17,11 +15,11 @@ abstract class Model {
     public static function getAll() {
         $db = Db::instance();
         // $class = get_called_class();
-        $sql = "SELECT * FROM asdasd " . static::$table;
+        $sql = "SELECT * FROM" . static::$table;
         $res = $db->query($sql, static::class);
 
-        if(!$res) {
-            throw new \App\Exeptions\Http404('SOME msg', '419');
+        if (!$res) {
+            throw new \Exception('KAKAJA TO OSHIBKA', '419');
         }
 
         return $res;

@@ -17,10 +17,10 @@ $action = $_GET['action'] ?: 'Index';
 
 try {
     $nws -> action($action);
-} catch (\App\Exeptions\Http404 $e) {
-    var_dump($e->getCode());
+} catch (\Exception $e) {
+    var_dump($e->getMessage());
     echo "<br>";
-    die("OSHIBKA => " . $e->getMessage());
+    var_dump($e->getCode());
 }
 
 
