@@ -3,7 +3,7 @@
 namespace App\Exeptions;
 
 
-class Http404 extends \Exeption {
+class Http404 extends \Exception {
 
 
 

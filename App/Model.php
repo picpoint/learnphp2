@@ -21,7 +21,7 @@ abstract class Model {
         $res = $db->query($sql, static::class);
 
         if(!$res) {
-            throw new \Exception('sovsem nich gut', '419');
+            throw new \App\Exeptions\Http404('SOME msg', '419');
         }
 
         return $res;
