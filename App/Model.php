@@ -4,6 +4,8 @@ namespace App;
 
 
 
+use Couchbase\Exception;
+
 abstract class Model {
 
     public static $table = '';
@@ -15,8 +17,15 @@ abstract class Model {
     public static function getAll() {
         $db = Db::instance();
         // $class = get_called_class();
-        $sql = "SELECT * FROM " . static::$table;
-        return $db->query($sql, static::class);
+        $sql = "SELECT * FROM asdasd " . static::$table;
+        $res = $db->query($sql, static::class);
+
+        if(!$res) {
+            throw new \Exception('sovsem nich gut', '419');
+        }
+
+        return $res;
+
     }
 
 

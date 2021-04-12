@@ -12,8 +12,16 @@ require __DIR__ . '/autoload.php';
 
 $nws = new App\Controllers\News();
 $action = $_GET['action'] ?: 'Index';
-$nws -> action($action);
+//$nws -> action($action);
 
+
+try {
+    $nws -> action($action);
+} catch (\Exception $e) {
+    var_dump($e->getCode());
+    echo "<br>";
+    die("OSHIBKA " . $e->getMessage());
+}
 
 
 
