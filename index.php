@@ -1,5 +1,5 @@
 <?php
-//error_reporting(E_ALL);
+error_reporting(E_ALL);
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\HasPrice;
@@ -10,18 +10,59 @@ require __DIR__ . '/autoload.php';
 
 
 
-$nws = new App\Controllers\News();
-$action = $_GET['action'] ?: 'Index';
-//$nws -> action($action);
+$res = -42 / 2;
 
 
-try {
-    $nws -> action($action);
-} catch (\App\Exeptions\Http404 $e) {
-    var_dump($e->getMessage());
-    echo "<br>";
-    var_dump($e->getCode());
+function someResult($rs) {
+
+    if ($rs < 0) {
+        echo "Число должно быть > 0";
+        echo "<br>";
+    }
+
+    if ($rs % 2 != 0) {
+        echo "Число должно быть чётное";
+        echo "<br>";
+    }
+
+    return $rs;
+
 }
+
+
+print_r(someResult($res));
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/** @var
+ * work with try-catch
+ * $nws */
+
+//$nws = new App\Controllers\News();
+//$action = $_GET['action'] ?: 'Index';
+////$nws -> action($action);
+
+
+//try {
+//    $nws -> action($action);
+//} catch (\App\Exeptions\Http404 $e) {
+//    var_dump($e->getMessage());
+//    echo "<br>";
+//    var_dump($e->getCode());
+//}
 
 
 
