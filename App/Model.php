@@ -19,7 +19,7 @@ abstract class Model {
         $res = $db->query($sql, static::class);
 
         if (!$res) {
-            throw new \Exception('KAKAJA TO OSHIBKA', '419');
+            throw new \Exception('!!! ERR TO SQL QUERY M->GETALL', '419');
         }
 
         return $res;
@@ -36,7 +36,7 @@ abstract class Model {
         if(!empty($resFind)) {
             return $resFind;
         } else {
-            return "false";
+            throw new \Exception('!!! ERR SQL QUERY M->FINDBYID', '419');
         }
 
     }
@@ -63,7 +63,13 @@ abstract class Model {
     public static function getNLatestNews($quantity) {
         $db = new Db();
         $sql = "(SELECT * FROM " . static::$table . " ORDER BY id DESC limit " . $quantity . ") ORDER BY id ASC";          // DESC - отсортирует по убыванию 3, 2, 1 
-        return $db->query($sql, static::class, $arr);                                                                      // ASC - отсортирует по возрастанию 1, 2, 3
+        $res = $db->query($sql, static::class, $arr);                                                                      // ASC - отсортирует по возрастанию 1, 2, 3
+
+        if(!$res) {
+            throw new \Exception('!!! ERR SQL QUERY M->GETNLATESTNEWS');
+        }
+
+        return $res;
     }
 
 
@@ -71,8 +77,6 @@ abstract class Model {
     public function save() {
         $db = Db::instance();
         $props = get_object_vars($this);
-        var_dump($props);
-        die;
         $ks = [];
         $vls = [];
 
