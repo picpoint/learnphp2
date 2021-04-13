@@ -19,7 +19,7 @@ abstract class Model {
         $res = $db->query($sql, static::class);
 
         if (!$res) {
-            throw new \Exception('!!! ERR TO SQL QUERY M->GETALL', '419');
+            throw new \App\Exeptions\Http404();
         }
 
         return $res;
@@ -53,7 +53,7 @@ abstract class Model {
         if(!empty($resFind)) {
             return $resFind;
         } else {
-            return "false";
+            throw new \Exception('!!! ERR SQL REQUEST M->FINDBYIDAUTHOR');
         }
 
     }
@@ -119,13 +119,20 @@ abstract class Model {
         }
 
         $sql = "UPDATE " . static::$table . " SET " . $resstr . " WHERE id=" . $currentId;
-        $db->insert($sql);
+        $res = $db->insert($sql);
+
+        if(!$res) {
+            throw new \Exception('!!! ERR UPDATE M->UPDATE', 419);
+        }
+
+        return $res;
+
     }
 
 
 
     public function saves($currentId) {
-        $db = new Db();                
+        $db = new Db();
         $this->id = $currentId;
         echo($this->id);
 
@@ -141,7 +148,18 @@ abstract class Model {
     public function delete($id) {
         $db = new Db();
         $sql = "DELETE FROM " . static::$table . " WHERE id=" . $id;
-        return $db->execute($sql);
+        $res = $db->execute($sql);
+
+        if(!$res) {
+            throw new \Exception('!!! ERR DELETE M->DELETE', 419);
+        }
+
+    }
+
+
+
+    public function fill(array $data) {
+
     }
 
 

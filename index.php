@@ -17,7 +17,7 @@ $action = $_GET['action'] ?: 'Index';
 
 try {
     $nws -> action($action);
-} catch (\Exception $e) {
+} catch (\App\Exeptions\Http404 $e) {
     var_dump($e->getMessage());
     echo "<br>";
     var_dump($e->getCode());
