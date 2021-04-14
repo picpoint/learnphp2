@@ -4,13 +4,13 @@ use App\Models\Product;
 use App\Models\Service;
 use App\Models\HasPrice;
 use App\Models\View;
+use App\Exeptions\Errors;
 
 require __DIR__ . '/autoload.php';
 
 
 
-// Method MultiException
-/*
+
 $res = -43 / 2;
 
 
@@ -40,23 +40,6 @@ function validate($value) {
 
 
 
-class Errors extends Exception {
-
-    public $arrErr = [];
-
-
-    public function addErr($err) {
-        $this->arrErr[] = $err;
-    }
-
-
-    public function getErr() {
-        return $this->arrErr;
-    }
-
-}
-
-
 
 
 
@@ -65,7 +48,7 @@ try {
 } catch (Exception $e) {
     echo $e->getMessage();
 }
-*/
+
 
 
 
