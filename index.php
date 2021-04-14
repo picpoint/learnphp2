@@ -9,28 +9,65 @@ require __DIR__ . '/autoload.php';
 
 
 
+// Method MultiException
+/*
+$res = -43 / 2;
 
-$res = -42 / 2;
 
 
-function someResult($rs) {
+function validate($value) {
 
-    if ($rs < 0) {
-        echo "Число должно быть > 0";
+    $resErr = new Errors();
+
+    if ($value <= 0) {
+        $resErr->addErr(new Exception('Значение должно быть > 0'));
+    }
+
+    if ($value % 2 != 0) {
+        $resErr->addErr(new Exception('Значение должно быть чётным'));
+
+    }
+
+    foreach ($resErr->getErr() as $err) {
+        print_r($err);
+        echo "<br>";
         echo "<br>";
     }
 
-    if ($rs % 2 != 0) {
-        echo "Число должно быть чётное";
-        echo "<br>";
-    }
-
-    return $rs;
+    return $value;
 
 }
 
 
-print_r(someResult($res));
+
+class Errors extends Exception {
+
+    public $arrErr = [];
+
+
+    public function addErr($err) {
+        $this->arrErr[] = $err;
+    }
+
+
+    public function getErr() {
+        return $this->arrErr;
+    }
+
+}
+
+
+
+
+
+try {
+    validate($res);
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
+*/
+
+
 
 
 
@@ -65,29 +102,3 @@ print_r(someResult($res));
 //}
 
 
-
-
-
-/**
- * задание 2.1
- 
- * контроллер для одной новости
- * $oneNews = new App\Controllers\NewsOne();
- * $oneNews -> actionOneNews();
-
- * контроллер для всех новостей
- * $allnews = new App\Controllers\NewsAll();
- * $allnews -> actionNewsAll();
- * 
- */
-
-
-
-
-/**
- * задание 1
- * написан клас контроллера сделан метод action($action)
- * 
- * $ctrl = new App\Controllers\IndexCtrl();
- * $ctrl -> action('Index');
- */
