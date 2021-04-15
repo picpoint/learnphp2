@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 use App\Models\Product;
 use App\Models\Service;
 use App\Models\HasPrice;
@@ -11,12 +11,6 @@ use SebastianBergmann\Timer\Timer;
 
 
 require __DIR__ . '/autoload.php';
-
-
-
-
-
-
 
 
 
@@ -154,17 +148,42 @@ var_dump('Nanoseconds -> ' . $duration->asNanoseconds());
  * work with try-catch
  * $nws */
 
-//$nws = new App\Controllers\News();
-//$action = $_GET['action'] ?: 'Index';
-////$nws -> action($action);
+$nws = new App\Controllers\News();
+$action = $_GET['action'] ?: 'Index';
+//$nws -> action($action);
 
 
-//try {
-//    $nws -> action($action);
-//} catch (\App\Exeptions\Http404 $e) {
-//    var_dump($e->getMessage());
-//    echo "<br>";
-//    var_dump($e->getCode());
-//}
+try {
+    $nws -> action($action);
+} catch (\App\Exeptions\Http404 $e) {
+    var_dump($e->getMessage());
+    echo "<br>";
+    var_dump($e->getCode());
+
+
+    /**
+     * Send mail
+     * * Lesson 6 task 4 - Logging
+     * not work
+     */
+    /*
+// Create the Transport
+    $transport = (new Swift_SmtpTransport('smtp.example.org', 25))->setUsername('bugaga')->setPassword('123456');
+
+// Create the Mailer using your created Transport
+    $mailer = new Swift_Mailer($transport);
+
+// Create a message
+    $message = (new Swift_Message('Wonderful Subject'))
+        ->setFrom(['john@doe.com' => 'John Doe'])
+        ->setTo(['rubin@magazin-rubin.ru', 'info@magazin-rubin.ru' => 'A name'])
+        ->setBody('Here is the message itself');
+
+// Send the message
+    $result = $mailer->send($message);
+    */
+
+
+}
 
 
